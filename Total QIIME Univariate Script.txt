@@ -1,0 +1,79 @@
+#*********************************************************************#
+#                                                                     #
+#                            QIIME v1.9.1                             #
+#                                                                     #
+#             16S rRNA Univariate Analysis of 264 Samples             #
+#                                                                     #
+#                       Author: Shawn Kroetsch                        #
+#                                                                     #
+#*********************************************************************#
+
+## 1) multiple_join_paired_ends.py
+## Run join_paired_ends.py on multiple files. Joins paired-end Illumina reads.
+
+multiple_join_paired_ends.py -p /data/shawn/Complete_264_Samples/custom_join_param.txt -i /data/shawn/Complete_264_Samples/unpaired_input -o /data/shawn/Complete_264_Samples/paired_input --read1_indicator '_R1' --read2_indicator '_R2'
+
+
+## 2) multiple_extract_barcodes.py
+## Run extract_barcodes.py on multiple files.
+
+multiple_extract_barcodes.py -p /data/shawn/Complete_264_Samples/custom_barcode_param.txt -i /data/shawn/Complete_264_Samples/paired_input -o /data/shawn/Complete_264_Samples/barcode_output --include_input_dir_path --remove_filepath_in_name
+
+
+## 3) multiple_split_libraries_fastq.py
+## Run split_libraries_fastq.py on multiple files.
+
+multiple_split_libraries_fastq.py -p /data/shawn/Complete_264_Samples/custom_quality_param.txt -i /data/shawn/Complete_264_Samples/paired_input -o /data/shawn/Complete_264_Samples/output --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+
+## 4) count_seqs.py 
+## Count the sequences in a fasta file.
+
+count_seqs.py -i /data/shawn/Complete_264_Samples/output/seqs.fna -o /data/shawn/Complete_264_Samples/output/seqs_count.txt
+
+## 5) pick_de_novo_otus.py
+## A workflow for de novo OTU picking, taxonomy assignment, phylogenetic tree construction, and OTU table construction.
+
+pick_de_novo_otus.py -p /data/shawn/Complete_264_Samples/custom_de_novo_OTU_param.txt -i /data/shawn/Complete_264_Samples/output/seqs.fna -o /data/shawn/Complete_264_Samples/de_novo_OTU_output -a -O 20
+
+
+## 6) parallel_identify_chimeric_seqs.py
+## Parallel chimera detection.
+
+parallel_identify_chimeric_seqs.py -i /data/shawn/Complete_264_Samples/output/seqs.fna -o /data/shawn/Complete_264_Samples/output/chimeric_seqs.txt -O 20
+
+
+## 7) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (chimeric sequences).
+
+filter_otus_from_otu_table.py -i /data/shawn/Complete_264_Samples/de_novo_OTU_output/otu_table.biom -o /data/shawn/Complete_264_Samples/de_novo_OTU_output/otu_table_non_chimeric.biom -e /data/shawn/Complete_264_Samples/output/chimeric_seqs.txt
+
+
+## 8) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (singleton sequences).
+
+filter_otus_from_otu_table.py -i /data/shawn/Complete_264_Samples/de_novo_OTU_output/otu_table_non_chimeric.biom -o /data/shawn/Complete_264_Samples/de_novo_OTU_output/de_novo_OTU_table_filtered.biom -n 2
+
+
+## 9) biom summarize-table
+## Takes a BIOM file and prints a summary of the count information on a per-sample basis.
+
+biom summarize-table -i /data/shawn/Complete_264_Samples/de_novo_OTU_output/otu_table_non_chimeric.biom -o /data/shawn/Complete_264_Samples/de_novo_OTU_output/de_novo_OTU_table_summary.txt
+
+
+## 10) biom convert
+## Convert biom format to tab-delimited table format.
+
+biom convert -i /data/shawn/Complete_264_Samples/de_novo_OTU_output/otu_table_non_chimeric.biom -o /data/shawn/Complete_264_Samples/de_novo_OTU_output/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+
+## 11) validate_mapping_file.py
+## Checks user’s metadata mapping file for required data, valid format.
+
+validate_mapping_file.py -m /data/shawn/Complete_264_Samples/mapping_file_output_264_samples/mapping_file_output_264_samples.txt -o /data/shawn/Complete_264_Samples/mapping_file_output_264_samples -v
+
+
+## 12) summarize_taxa_through_plots.py
+## A workflow script for performing taxonomy summaries and plots.
+
+summarize_taxa_through_plots.py -i /data/shawn/Complete_264_Samples/de_novo_OTU_output/de_novo_OTU_table_filtered.biom -o /data/shawn/Complete_264_Samples/summarize_taxa_through_plots_output -m /data/shawn/Complete_264_Samples/mapping_file_output_264_samples/mapping_file_output_264_samples.txt -p /data/shawn/Complete_264_Samples/custom_summary_through_plots_param.txt
