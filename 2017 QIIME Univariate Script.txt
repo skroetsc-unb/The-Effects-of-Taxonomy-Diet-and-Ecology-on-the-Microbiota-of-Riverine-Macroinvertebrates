@@ -1,0 +1,789 @@
+#*******************************************************************#
+#                                                                   #
+#                           QIIME v1.9.1                            #
+#                                                                   #
+#         2017 16S rRNA Univariate Analysis of 186 Samples          #
+#                                                                   #
+#                      Author: Shawn Kroetsch                       #
+#                                                                   #
+#*******************************************************************#
+
+## 1) multiple_join_paired_ends.py
+## Run join_paired_ends.py on multiple files. Joins paired-end Illumina reads.
+
+# Microhabitat:
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_microhabitat_gammarus -o /data/shawn/2017_Univariate/paired_input_microhabitat_gammarus --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_microhabitat_physella -o /data/shawn/2017_Univariate/paired_input_microhabitat_physella --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_microhabitat_ladislavella -o /data/shawn/2017_Univariate/paired_input_microhabitat_ladislavella --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_microhabitat_nectopsyche -o /data/shawn/2017_Univariate/paired_input_microhabitat_nectopsyche --read1_indicator '_R1' --read2_indicator '_R2'
+
+# Functional Feeding Group:
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_ffg_site_A -o /data/shawn/2017_Univariate/paired_input_ffg_site_A --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_ffg_site_B -o /data/shawn/2017_Univariate/paired_input_ffg_site_B --read1_indicator '_R1' --read2_indicator '_R2'
+
+# Traditional Feeding Habit:
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_feeding_habit_site_A -o /data/shawn/2017_Univariate/paired_input_feeding_habit_site_A --read1_indicator '_R1' --read2_indicator '_R2'
+
+# Host Invertebrate Taxonomy:
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_taxonomy_family_site_A -o /data/shawn/2017_Univariate/paired_input_taxonomy_family_site_A --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_taxonomy_family_site_B -o /data/shawn/2017_Univariate/paired_input_taxonomy_family_site_B --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_taxonomy_order_site_A -o /data/shawn/2017_Univariate/paired_input_taxonomy_order_site_A --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2017_Univariate/custom_join_param.txt -i /data/shawn/2017_Univariate/unpaired_input_taxonomy_order_site_C -o /data/shawn/2017_Univariate/paired_input_taxonomy_order_site_C --read1_indicator '_R1' --read2_indicator '_R2'
+
+
+## 2) multiple_extract_barcodes.py
+## Run extract_barcodes.py on multiple files.
+
+# Microhabitat:
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_gammarus -o /data/shawn/2017_Univariate/barcode_output_microhabitat_gammarus --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_physella -o /data/shawn/2017_Univariate/barcode_output_microhabitat_physella --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_ladislavella -o /data/shawn/2017_Univariate/barcode_output_microhabitat_ladislavella --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_nectopsyche -o /data/shawn/2017_Univariate/barcode_output_microhabitat_nectopsyche --include_input_dir_path --remove_filepath_in_name
+
+# Functional Feeding Group:
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_ffg_site_A -o /data/shawn/2017_Univariate/barcode_output_ffg_site_A --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_ffg_site_B -o /data/shawn/2017_Univariate/barcode_output_ffg_site_B --include_input_dir_path --remove_filepath_in_name
+
+# Traditional Feeding Habit:
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_feeding_habit_site_A -o /data/shawn/2017_Univariate/barcode_output_feeding_habit_site_A --include_input_dir_path --remove_filepath_in_name
+
+# Host Invertebrate Taxonomy:
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_family_site_A -o /data/shawn/2017_Univariate/barcode_output_taxonomy_family_site_A --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_family_site_B -o /data/shawn/2017_Univariate/barcode_output_taxonomy_family_site_B --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_order_site_A -o /data/shawn/2017_Univariate/barcode_output_taxonomy_order_site_A --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2017_Univariate/custom_barcode_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_order_site_C -o /data/shawn/2017_Univariate/barcode_output_taxonomy_order_site_C --include_input_dir_path --remove_filepath_in_name
+
+
+## 3) multiple_split_libraries_fastq.py
+## Run split_libraries_fastq.py on multiple files.
+
+# Microhabitat:
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_gammarus -o /data/shawn/2017_Univariate/output_microhabitat_gammarus --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_physella -o /data/shawn/2017_Univariate/output_microhabitat_physella --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_ladislavella -o /data/shawn/2017_Univariate/output_microhabitat_ladislavella --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_microhabitat_nectopsyche -o /data/shawn/2017_Univariate/output_microhabitat_nectopsyche --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+# Functional Feeding Group:
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_ffg_site_A -o /data/shawn/2017_Univariate/output_ffg_site_A --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_ffg_site_B -o /data/shawn/2017_Univariate/output_ffg_site_B --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+# Traditional Feeding Habit:
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_feeding_habit_site_A -o /data/shawn/2017_Univariate/output_feeding_habit_site_A --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+# Host Invertebrate Taxonomy:
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_family_site_A -o /data/shawn/2017_Univariate/output_taxonomy_family_site_A --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_family_site_B -o /data/shawn/2017_Univariate/output_taxonomy_family_site_B --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_order_site_A -o /data/shawn/2017_Univariate/output_taxonomy_order_site_A --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2017_Univariate/custom_quality_param.txt -i /data/shawn/2017_Univariate/paired_input_taxonomy_order_site_C -o /data/shawn/2017_Univariate/output_taxonomy_order_site_C --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+
+## 4) count_seqs.py 
+## Count the sequences in a fasta file.
+
+# Microhabitat:
+count_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_gammarus/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_gammarus/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_physella/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_physella/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_ladislavella/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_ladislavella/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_nectopsyche/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_nectopsyche/seqs_count.txt
+
+# Functional Feeding Group:
+count_seqs.py -i /data/shawn/2017_Univariate/output_ffg_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_ffg_site_A/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_ffg_site_B/seqs.fna -o /data/shawn/2017_Univariate/output_ffg_site_B/seqs_count.txt
+
+# Traditional Feeding Habit:
+count_seqs.py -i /data/shawn/2017_Univariate/output_feeding_habit_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_feeding_habit_site_A/seqs_count.txt
+
+# Host Invertebrate Taxonomy:
+count_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_family_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_family_site_A/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_family_site_B/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_family_site_B/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_order_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_order_site_A/seqs_count.txt
+count_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_order_site_C/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_order_site_C/seqs_count.txt
+
+## 5) pick_de_novo_otus.py
+## A workflow for de novo OTU picking, taxonomy assignment, phylogenetic tree construction, and OTU table construction.
+
+# Microhabitat:
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_microhabitat_gammarus/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_microhabitat_physella/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_microhabitat_ladislavella/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_microhabitat_nectopsyche/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche -a -O 20
+
+# Functional Feeding Group:
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_ffg_site_A/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_ffg_site_B/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B -a -O 20
+
+# Traditional Feeding Habit:
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_feeding_habit_site_A/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A -a -O 20
+
+# Host Invertebrate Taxonomy:
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_taxonomy_family_site_A/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_taxonomy_family_site_B/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_taxonomy_order_site_A/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2017_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2017_Univariate/output_taxonomy_order_site_C/seqs.fna -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C -a -O 20
+
+
+## 6) parallel_identify_chimeric_seqs.py
+## Parallel chimera detection.
+
+# Microhabitat:
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_gammarus/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_gammarus/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_physella/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_physella/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_ladislavella/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_ladislavella/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_microhabitat_nectopsyche/seqs.fna -o /data/shawn/2017_Univariate/output_microhabitat_nectopsyche/chimeric_seqs.txt -O 20
+
+# Functional Feeding Group:
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_ffg_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_ffg_site_A/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_ffg_site_B/seqs.fna -o /data/shawn/2017_Univariate/output_ffg_site_B/chimeric_seqs.txt -O 20
+
+# Traditional Feeding Habit:
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_feeding_habit_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_feeding_habit_site_A/chimeric_seqs.txt -O 20
+
+# Host Invertebrate Taxonomy:
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_family_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_family_site_A/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_family_site_B/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_family_site_B/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_order_site_A/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_order_site_A/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2017_Univariate/output_taxonomy_order_site_C/seqs.fna -o /data/shawn/2017_Univariate/output_taxonomy_order_site_C/chimeric_seqs.txt -O 20
+
+
+## 7) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (chimeric sequences).
+
+# Microhabitat:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_microhabitat_gammarus/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_microhabitat_physella/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_microhabitat_ladislavella/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_microhabitat_nectopsyche/chimeric_seqs.txt
+
+# Functional Feeding Group:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_ffg_site_A/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_ffg_site_B/chimeric_seqs.txt
+
+# Traditional Feeding Habit:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_feeding_habit_site_A/chimeric_seqs.txt
+
+# Host Invertebrate Taxonomy:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_taxonomy_family_site_A/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_taxonomy_family_site_B/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_taxonomy_order_site_A/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/otu_table.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/otu_table_non_chimeric.biom -e /data/shawn/2017_Univariate/output_taxonomy_order_site_C/chimeric_seqs.txt
+
+
+## 8a) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (singleton sequences).
+
+# Microhabitat:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -n 2
+
+# Functional Feeding Group:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -n 2
+
+# Traditional Feeding Habit:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -n 2
+
+# Host Invertebrate Taxonomy:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -n 2
+
+
+## 8b) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (optional step to remove OTUs not present in at least 5 samples).
+
+# Microhabitat:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -s 5
+
+# Functional Feeding Group:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -s 5
+
+# Traditional Feeding Habit:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -s 5
+
+# Host Invertebrate Taxonomy:
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/otu_table_non_chimeric.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -s 5
+
+
+## 9a) biom summarize-table
+## Takes a BIOM file and prints a summary of the count information on a per-sample basis.
+
+# Microhabitat:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_summary.txt
+
+# Functional Feeding Group:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_summary.txt
+
+# Traditional Feeding Habit:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_summary.txt
+
+# Host Invertebrate Taxonomy:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_summary.txt
+
+
+## 9b) biom summarize-table
+## Takes a BIOM file and prints a summary of the count information on a per-sample basis (using rare OTU table).
+
+# Microhabitat:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_summary_rare.txt
+
+# Functional Feeding Group:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_summary_rare.txt
+
+# Traditional Feeding Habit:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_summary_rare.txt
+
+# Host Invertebrate Taxonomy:
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_summary_rare.txt
+
+
+## 10a) biom convert
+## Convert biom format to tab-delimited table format.
+
+# Microhabitat:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+# Functional Feeding Group:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+# Traditional Feeding Habit:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+# Host Invertebrate Taxonomy:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+
+## 10b) biom convert
+## Convert biom format to tab-delimited table format (using rare OTU table).
+
+# Microhabitat:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+
+# Functional Feeding Group:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+
+# Traditional Feeding Habit:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+
+# Host Invertebrate Taxonomy:
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+
+
+## 11) validate_mapping_file.py
+## Checks user’s metadata mapping file for required data, valid format.
+
+# Microhabitat:
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche -v
+
+# Functional Feeding Group:
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B -v
+
+# Traditional Feeding Habit:
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A -v
+
+# Host Invertebrate Taxonomy:
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A -v
+validate_mapping_file.py -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C -v
+
+
+## 12a) alpha_rarefaction.py
+## A workflow script for performing alpha rarefaction.
+
+# Microhabitat:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_gammarus -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_physella -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_ladislavella -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_nectopsyche -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+# Functional Feeding Group:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_ffg_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_ffg_site_B -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+# Traditional Feeding Habit:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_feeding_habit_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_family_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_family_site_B -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_order_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_order_site_C -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+
+## 12b) alpha_rarefaction.py
+## A workflow script for performing alpha rarefaction (using rare OTU table).
+
+# Microhabitat:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_gammarus_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_physella_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_ladislavella_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_microhabitat_nectopsyche_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+# Functional Feeding Group:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_ffg_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_ffg_site_B_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+# Traditional Feeding Habit:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_feeding_habit_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_family_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_family_site_B_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_order_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/alpha_diversity_output_taxonomy_order_site_C_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -e 10000 -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/rep_set.tre -a -O 20 -p /data/shawn/2017_Univariate/custom_alpha_diversity_param.txt
+
+
+## 13a) beta_diversity_through_plots.py
+## A workflow script for computing beta diversity distance matrices and generating PCoA plots.
+
+# Microhabitat:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+# Functional Feeding Group:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+# Traditional Feeding Habit:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A -t /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+
+## 13b) beta_diversity_through_plots.py
+## A workflow script for computing beta diversity distance matrices and generating PCoA plots (using rare OTU table).
+
+# Microhabitat:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+# Functional Feeding Group:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+# Traditional Feeding Habit:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare -t /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2017_Univariate/custom_beta_diversity_param.txt
+
+
+## 14a) group_significance.py
+## Compare OTU frequencies across sample groups (relative abundance with Benjamini-Hochberg corrections).
+
+# Microhabitat:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -s kruskal_wallis
+
+# Functional Feeding Group:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -s kruskal_wallis
+
+# Traditional Feeding Habit:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -s kruskal_wallis
+
+# Host Invertebrate Taxonomy:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/group_significance.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -s kruskal_wallis
+
+
+## 14b) group_significance.py
+## Compare OTU frequencies across sample groups (relative abundance with Benjamini-Hochberg corrections; using rare OTU table).
+
+# Microhabitat:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -s kruskal_wallis
+
+# Functional Feeding Group:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -s kruskal_wallis
+
+# Traditional Feeding Habit:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -s kruskal_wallis
+
+# Host Invertebrate Taxonomy:
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -s kruskal_wallis
+group_significance.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/group_significance_rare.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -s kruskal_wallis
+
+
+## 15a) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (unweighted UniFrac).
+
+# Microhabitat:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+
+# Functional Feeding Group:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/adonis/unweighted_unifrac/adonis_unweighted_unifrac_ffg
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/adonis/unweighted_unifrac/adonis_unweighted_unifrac_ffg
+
+# Traditional Feeding Habit:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/adonis/unweighted_unifrac/adonis_unweighted_unifrac_feeding_habit
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/adonis/unweighted_unifrac/adonis_unweighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/adonis/unweighted_unifrac/adonis_unweighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+
+
+## 15b) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (unweighted UniFrac; using rare OTU table).
+
+# Microhabitat:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_microhabitat
+
+# Functional Feeding Group:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_ffg
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_ffg
+
+# Traditional Feeding Habit:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_feeding_habit
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/unweighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+
+
+## 16a) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (weighted UniFrac).
+
+# Microhabitat:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+
+# Functional Feeding Group:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/adonis/weighted_unifrac/adonis_weighted_unifrac_ffg
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/adonis/weighted_unifrac/adonis_weighted_unifrac_ffg
+
+# Traditional Feeding Habit:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/adonis/weighted_unifrac/adonis_weighted_unifrac_feeding_habit
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/adonis/weighted_unifrac/adonis_weighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/adonis/weighted_unifrac/adonis_weighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+
+
+## 16b) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (weighted UniFrac; using rare OTU table).
+
+# Microhabitat:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_microhabitat
+
+# Functional Feeding Group:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_ffg
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_ffg
+
+# Traditional Feeding Habit:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_feeding_habit
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/weighted_unifrac_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+
+
+## 17a) compare_categories.py
+## Analyzes statistical significance of sample groupings using distance matrices (Bray-Curtis). 
+
+# Microhabitat:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+
+# Functional Feeding Group:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/adonis/bray_curtis/adonis_bray_curtis_ffg
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/adonis/bray_curtis/adonis_bray_curtis_ffg
+
+# Traditional Feeding Habit:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/adonis/bray_curtis/adonis_bray_curtis_feeding_habit
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/adonis/bray_curtis/adonis_bray_curtis_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/adonis/bray_curtis/adonis_bray_curtis_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/adonis/bray_curtis/adonis_bray_curtis_order
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/adonis/bray_curtis/adonis_bray_curtis_order
+
+
+## 17b) compare_categories.py
+## Analyzes statistical significance of sample groupings using distance matrices (Bray-Curtis; using rare OTU table). 
+
+# Microhabitat:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -c Microhabitat -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/adonis/bray_curtis/adonis_bray_curtis_microhabitat
+
+# Functional Feeding Group:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/adonis/bray_curtis/adonis_bray_curtis_ffg
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -c FFG -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/adonis/bray_curtis/adonis_bray_curtis_ffg
+
+# Traditional Feeding Habit:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -c FeedingHabit -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/adonis/bray_curtis/adonis_bray_curtis_feeding_habit
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/adonis/bray_curtis/adonis_bray_curtis_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -c Family -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/adonis/bray_curtis/adonis_bray_curtis_family
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/adonis/bray_curtis/adonis_bray_curtis_order
+compare_categories.py --method adonis -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/bray_curtis_dm.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -c Order -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/adonis/bray_curtis/adonis_bray_curtis_order
+
+
+## 18a) make_2d_plots.py
+## Make 2D PCoA Plots (unweighted UniFrac).
+
+# Microhabitat:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/2d_unweighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/2d_unweighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/2d_unweighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/2d_unweighted_unifrac_plots -b Microhabitat
+
+# Functional Feeding Group:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/2d_unweighted_unifrac_plots -b FFG
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/2d_unweighted_unifrac_plots -b FFG
+
+# Traditional Feeding Habit:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/2d_unweighted_unifrac_plots -b FeedingHabit
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/2d_unweighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/2d_unweighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/2d_unweighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/2d_unweighted_unifrac_plots -b Order
+
+
+## 18b) make_2d_plots.py
+## Make 2D PCoA Plots (unweighted UniFrac; using rare OTU table).
+
+# Microhabitat:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/2d_unweighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/2d_unweighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/2d_unweighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/2d_unweighted_unifrac_plots -b Microhabitat
+
+# Functional Feeding Group:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/2d_unweighted_unifrac_plots -b FFG
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/2d_unweighted_unifrac_plots -b FFG
+
+# Traditional Feeding Habit:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/2d_unweighted_unifrac_plots -b FeedingHabit
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/2d_unweighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/2d_unweighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/2d_unweighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/unweighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/2d_unweighted_unifrac_plots -b Order
+
+
+## 19a) make_2d_plots.py
+## Make 2D PCoA Plots (weighted UniFrac).
+
+# Microhabitat:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/2d_weighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/2d_weighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/2d_weighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/2d_weighted_unifrac_plots -b Microhabitat
+
+# Functional Feeding Group:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/2d_weighted_unifrac_plots -b FFG
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/2d_weighted_unifrac_plots -b FFG
+
+# Traditional Feeding Habit:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/2d_weighted_unifrac_plots -b FeedingHabit
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/2d_weighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/2d_weighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/2d_weighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/2d_weighted_unifrac_plots -b Order
+
+
+## 19b) make_2d_plots.py
+## Make 2D PCoA Plots (weighted UniFrac; using rare OTU table).
+
+# Microhabitat:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/2d_weighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/2d_weighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/2d_weighted_unifrac_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/2d_weighted_unifrac_plots -b Microhabitat
+
+# Functional Feeding Group:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/2d_weighted_unifrac_plots -b FFG
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/2d_weighted_unifrac_plots -b FFG
+
+# Traditional Feeding Habit:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/2d_weighted_unifrac_plots -b FeedingHabit
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/2d_weighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/2d_weighted_unifrac_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/2d_weighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/weighted_unifrac_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/2d_weighted_unifrac_plots -b Order
+
+
+## 20a) make_2d_plots.py
+## Make 2D PCoA Plots (Bray-Curtis).
+
+# Microhabitat:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus/2d_bray_curtis_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella/2d_bray_curtis_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella/2d_bray_curtis_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche/2d_bray_curtis_plots -b Microhabitat
+
+# Functional Feeding Group:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A/2d_bray_curtis_plots -b FFG
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B/2d_bray_curtis_plots -b FFG
+
+# Traditional Feeding Habit:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A/2d_bray_curtis_plots -b FeedingHabit
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A/2d_bray_curtis_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B/2d_bray_curtis_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A/2d_bray_curtis_plots -b Order
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C/2d_bray_curtis_plots -b Order
+
+
+## 20b) make_2d_plots.py
+## Make 2D PCoA Plots (Bray-Curtis; using rare OTU table).
+
+# Microhabitat:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_gammarus_rare/2d_bray_curtis_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_physella_rare/2d_bray_curtis_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_ladislavella_rare/2d_bray_curtis_plots -b Microhabitat
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -o /data/shawn/2017_Univariate/beta_diversity_output_microhabitat_nectopsyche_rare/2d_bray_curtis_plots -b Microhabitat
+
+# Functional Feeding Group:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_A_rare/2d_bray_curtis_plots -b FFG
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_ffg_site_B_rare/2d_bray_curtis_plots -b FFG
+
+# Traditional Feeding Habit:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_feeding_habit_site_A_rare/2d_bray_curtis_plots -b FeedingHabit
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_A_rare/2d_bray_curtis_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_family_site_B_rare/2d_bray_curtis_plots -b Family
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_A_rare/2d_bray_curtis_plots -b Order
+make_2d_plots.py -i /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/bray_curtis_pc.txt -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -o /data/shawn/2017_Univariate/beta_diversity_output_taxonomy_order_site_C_rare/2d_bray_curtis_plots -b Order
+
+
+## 21a) summarize_taxa_through_plots.py
+## A workflow script for performing taxonomy summaries and plots.
+
+# Microhabitat:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_gammarus -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_physella -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_ladislavella -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_nectopsyche -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+# Functional Feeding Group:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_ffg_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_ffg_site_B -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+# Traditional Feeding Habit:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_feeding_habit_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+# Host Invertebrate Taxonomy:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_family_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_family_site_B -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_A -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_C -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+
+## 21b) summarize_taxa_through_plots.py
+## A workflow script for performing taxonomy summaries and plots (using rare OTU table).
+
+# Microhabitat:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_gammarus/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_gammarus_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_gammarus/mapping_file_2017_microhabitat_gammarus.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_physella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_physella_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_physella/mapping_file_2017_microhabitat_physella.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_ladislavella/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_ladislavella_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_ladislavella/mapping_file_2017_microhabitat_ladislavella.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_microhabitat_nectopsyche/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_microhabitat_nectopsyche_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_microhabitat_nectopsyche/mapping_file_2017_microhabitat_nectopsyche.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+# Functional Feeding Group:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_ffg_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_A/mapping_file_2017_ffg_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_ffg_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_ffg_site_B_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_ffg_site_B/mapping_file_2017_ffg_site_B.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+# Traditional Feeding Habit:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_feeding_habit_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_feeding_habit_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_feeding_habit_site_A/mapping_file_2017_feeding_habit_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+
+# Host Invertebrate Taxonomy:
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_family_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_A/mapping_file_2017_taxonomy_family_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_family_site_B/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_family_site_B_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_family_site_B/mapping_file_2017_taxonomy_family_site_B.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_A/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_A_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_A/mapping_file_2017_taxonomy_order_site_A.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2017_Univariate/de_novo_OTU_output_taxonomy_order_site_C/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2017_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_C_rare -m /data/shawn/2017_Univariate/mapping_file_output_2017_taxonomy_order_site_C/mapping_file_2017_taxonomy_order_site_C.txt -p /data/shawn/2017_Univariate/custom_summary_through_plots_param.txt
