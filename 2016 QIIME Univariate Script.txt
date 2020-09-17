@@ -1,0 +1,416 @@
+#******************************************************************#
+#                                                                  #
+#                           QIIME v1.9.1                           #
+#                                                                  #
+#         2016 16S rRNA Univariate Analysis of 78 Samples          #
+#                                                                  #
+#                      Author: Shawn Kroetsch                      #
+#                                                                  #
+#******************************************************************#
+
+## 1) multiple_join_paired_ends.py
+## Run join_paired_ends.py on multiple files. Joins paired-end Illumina reads.
+
+# Water Velocity:
+multiple_join_paired_ends.py -p /data/shawn/2016_Univariate/custom_join_param.txt -i /data/shawn/2016_Univariate/unpaired_input_water_velocity_sialis -o /data/shawn/2016_Univariate/paired_input_water_velocity_sialis --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2016_Univariate/custom_join_param.txt -i /data/shawn/2016_Univariate/unpaired_input_water_velocity_chironomidae -o /data/shawn/2016_Univariate/paired_input_water_velocity_chironomidae --read1_indicator '_R1' --read2_indicator '_R2'
+
+# Host Invertebrate Taxonomy:
+multiple_join_paired_ends.py -p /data/shawn/2016_Univariate/custom_join_param.txt -i /data/shawn/2016_Univariate/unpaired_input_taxonomy_order_site_2 -o /data/shawn/2016_Univariate/paired_input_taxonomy_order_site_2 --read1_indicator '_R1' --read2_indicator '_R2'
+multiple_join_paired_ends.py -p /data/shawn/2016_Univariate/custom_join_param.txt -i /data/shawn/2016_Univariate/unpaired_input_taxonomy_order_site_5 -o /data/shawn/2016_Univariate/paired_input_taxonomy_order_site_5 --read1_indicator '_R1' --read2_indicator '_R2'
+
+
+## 2) multiple_extract_barcodes.py
+## Run extract_barcodes.py on multiple files.
+
+# Water Velocity:
+multiple_extract_barcodes.py -p /data/shawn/2016_Univariate/custom_barcode_param.txt -i /data/shawn/2016_Univariate/paired_input_water_velocity_sialis -o /data/shawn/2016_Univariate/barcode_output_water_velocity_sialis --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2016_Univariate/custom_barcode_param.txt -i /data/shawn/2016_Univariate/paired_input_water_velocity_chironomidae -o /data/shawn/2016_Univariate/barcode_output_water_velocity_chironomidae --include_input_dir_path --remove_filepath_in_name
+
+# Host Invertebrate Taxonomy:
+multiple_extract_barcodes.py -p /data/shawn/2016_Univariate/custom_barcode_param.txt -i /data/shawn/2016_Univariate/paired_input_taxonomy_order_site_2 -o /data/shawn/2016_Univariate/barcode_output_taxonomy_order_site_2 --include_input_dir_path --remove_filepath_in_name
+multiple_extract_barcodes.py -p /data/shawn/2016_Univariate/custom_barcode_param.txt -i /data/shawn/2016_Univariate/paired_input_taxonomy_order_site_5 -o /data/shawn/2016_Univariate/barcode_output_taxonomy_order_site_5 --include_input_dir_path --remove_filepath_in_name
+
+
+## 3) multiple_split_libraries_fastq.py
+## Run split_libraries_fastq.py on multiple files.
+
+# Water Velocity:
+multiple_split_libraries_fastq.py -p /data/shawn/2016_Univariate/custom_quality_param.txt -i /data/shawn/2016_Univariate/paired_input_water_velocity_sialis -o /data/shawn/2016_Univariate/output_water_velocity_sialis --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2016_Univariate/custom_quality_param.txt -i /data/shawn/2016_Univariate/paired_input_water_velocity_chironomidae -o /data/shawn/2016_Univariate/output_water_velocity_chironomidae --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+# Host Invertebrate Taxonomy:
+multiple_split_libraries_fastq.py -p /data/shawn/2016_Univariate/custom_quality_param.txt -i /data/shawn/2016_Univariate/paired_input_taxonomy_order_site_2 -o /data/shawn/2016_Univariate/output_taxonomy_order_site_2 --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+multiple_split_libraries_fastq.py -p /data/shawn/2016_Univariate/custom_quality_param.txt -i /data/shawn/2016_Univariate/paired_input_taxonomy_order_site_5 -o /data/shawn/2016_Univariate/output_taxonomy_order_site_5 --include_input_dir_path --remove_filepath_in_name -m sampleid_by_file
+
+
+## 4) count_seqs.py 
+## Count the sequences in a fasta file.
+
+# Water Velocity:
+count_seqs.py -i /data/shawn/2016_Univariate/output_water_velocity_sialis/seqs.fna -o /data/shawn/2016_Univariate/output_water_velocity_sialis/seqs_count.txt
+count_seqs.py -i /data/shawn/2016_Univariate/output_water_velocity_chironomidae/seqs.fna -o /data/shawn/2016_Univariate/output_water_velocity_chironomidae/seqs_count.txt
+
+# Host Invertebrate Taxonomy:
+count_seqs.py -i /data/shawn/2016_Univariate/output_taxonomy_order_site_2/seqs.fna -o /data/shawn/2016_Univariate/output_taxonomy_order_site_2/seqs_count.txt
+count_seqs.py -i /data/shawn/2016_Univariate/output_taxonomy_order_site_5/seqs.fna -o /data/shawn/2016_Univariate/output_taxonomy_order_site_5/seqs_count.txt
+
+
+## 5) pick_de_novo_otus.py
+## A workflow for de novo OTU picking, taxonomy assignment, phylogenetic tree construction, and OTU table construction.
+
+# Water Velocity:
+pick_de_novo_otus.py -p /data/shawn/2016_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2016_Univariate/output_water_velocity_sialis/seqs.fna -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2016_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2016_Univariate/output_water_velocity_chironomidae/seqs.fna -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae -a -O 20
+
+# Host Invertebrate Taxonomy:
+pick_de_novo_otus.py -p /data/shawn/2016_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2016_Univariate/output_taxonomy_order_site_2/seqs.fna -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2 -a -O 20
+pick_de_novo_otus.py -p /data/shawn/2016_Univariate/custom_de_novo_OTU_param.txt -i /data/shawn/2016_Univariate/output_taxonomy_order_site_5/seqs.fna -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5 -a -O 20
+
+
+## 6) parallel_identify_chimeric_seqs.py
+## Parallel chimera detection.
+
+# Water Velocity:
+parallel_identify_chimeric_seqs.py -i /data/shawn/2016_Univariate/output_water_velocity_sialis/seqs.fna -o /data/shawn/2016_Univariate/output_water_velocity_sialis/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2016_Univariate/output_water_velocity_chironomidae/seqs.fna -o /data/shawn/2016_Univariate/output_water_velocity_chironomidae/chimeric_seqs.txt -O 20
+
+# Host Invertebrate Taxonomy:
+parallel_identify_chimeric_seqs.py -i /data/shawn/2016_Univariate/output_taxonomy_order_site_2/seqs.fna -o /data/shawn/2016_Univariate/output_taxonomy_order_site_2/chimeric_seqs.txt -O 20
+parallel_identify_chimeric_seqs.py -i /data/shawn/2016_Univariate/output_taxonomy_order_site_5/seqs.fna -o /data/shawn/2016_Univariate/output_taxonomy_order_site_5/chimeric_seqs.txt -O 20
+
+
+## 7) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (chimeric sequences).
+
+# Water Velocity:
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/otu_table.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/otu_table_non_chimeric.biom -e /data/shawn/2016_Univariate/output_water_velocity_sialis/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/otu_table.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/otu_table_non_chimeric.biom -e /data/shawn/2016_Univariate/output_water_velocity_chironomidae/chimeric_seqs.txt
+
+# Host Invertebrate Taxonomy:
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/otu_table.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/otu_table_non_chimeric.biom -e /data/shawn/2016_Univariate/output_taxonomy_order_site_2/chimeric_seqs.txt
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/otu_table.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/otu_table_non_chimeric.biom -e /data/shawn/2016_Univariate/output_taxonomy_order_site_5/chimeric_seqs.txt
+
+
+## 8a) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (singleton sequences).
+
+# Water Velocity:
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -n 2
+
+# Host Invertebrate Taxonomy:
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -n 2
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -n 2
+
+
+## 8b) filter_otus_from_otu_table.py
+## Filter OTUs from an OTU table based on their observation counts or identifier (optional step to remove OTUs not present in at least 5 samples).
+
+# Water Velocity:
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -s 5
+
+# Host Invertebrate Taxonomy:
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -s 5
+filter_otus_from_otu_table.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/otu_table_non_chimeric.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -s 5
+
+
+## 9a) biom summarize-table
+## Takes a BIOM file and prints a summary of the count information on a per-sample basis.
+
+# Water Velocity:
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_summary.txt
+
+# Host Invertebrate Taxonomy:
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_summary.txt
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_summary.txt
+
+
+## 9b) biom summarize-table
+## Takes a BIOM file and prints a summary of the count information on a per-sample basis (using rare OTU table).
+
+# Water Velocity:
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_summary_rare.txt
+
+# Host Invertebrate Taxonomy:
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_summary_rare.txt
+biom summarize-table -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_summary_rare.txt
+
+
+## 10a) biom convert
+## Convert biom format to tab-delimited table format.
+
+# Water Velocity:
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+# Host Invertebrate Taxonomy:
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_readable_summary.txt --to-tsv
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_readable_summary.txt --to-tsv
+
+
+## 10b) biom convert
+## Convert biom format to tab-delimited table format (using rare OTU table).
+
+# Water Velocity:
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+
+# Host Invertebrate Taxonomy:
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+biom convert -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_readable_summary_rare.txt --to-tsv
+
+
+## 11) validate_mapping_file.py
+## Checks user’s metadata mapping file for required data, valid format.
+
+# Water Velocity:
+validate_mapping_file.py -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis -v
+validate_mapping_file.py -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae -v
+
+# Host Invertebrate Taxonomy:
+validate_mapping_file.py -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2 -v
+validate_mapping_file.py -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5 -v
+
+
+## 12a) alpha_rarefaction.py 
+## A workflow script for performing alpha rarefaction.
+
+# Water Velocity:
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_water_velocity_sialis -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_water_velocity_chironomidae -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_taxonomy_order_site_2 -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_taxonomy_order_site_5 -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+
+
+## 12b) alpha_rarefaction.py 
+## A workflow script for performing alpha rarefaction (using rare OTU table).
+
+# Water Velocity:
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_water_velocity_sialis_rare -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_water_velocity_chironomidae_rare -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_taxonomy_order_site_2_rare -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+alpha_rarefaction.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/alpha_diversity_output_taxonomy_order_site_5_rare -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -e 10000 -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/rep_set.tre -a -O 20 -p /data/shawn/2016_Univariate/custom_alpha_diversity_param.txt
+
+
+## 13a) beta_diversity_through_plots.py
+## A workflow script for computing beta diversity distance matrices and generating PCoA plots.
+
+# Water Velocity:
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2 -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5 -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+
+
+## 13b) beta_diversity_through_plots.py
+## A workflow script for computing beta diversity distance matrices and generating PCoA plots (using rare OTU table).
+
+# Water Velocity:
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare -t /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+
+# Host Invertebrate Taxonomy:
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+beta_diversity_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare -t /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/rep_set.tre -a -e 10000 -O 20 -p /data/shawn/2016_Univariate/custom_beta_diversity_param.txt
+
+
+## 14a) group_significance.py
+## Compare OTU frequencies across sample groups (relative abundance with Benjamini-Hochberg corrections).
+
+# Water Velocity:
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/group_significance.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -s kruskal_wallis
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/group_significance.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -s kruskal_wallis
+
+# Host Invertebrate Taxonomy:
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/group_significance.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -s kruskal_wallis
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/group_significance.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -s kruskal_wallis
+
+
+## 14b) group_significance.py
+## Compare OTU frequencies across sample groups (relative abundance with Benjamini-Hochberg corrections; using rare OTU table).
+
+# Water Velocity:
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/group_significance_rare.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -s kruskal_wallis
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/group_significance_rare.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -s kruskal_wallis
+
+# Host Invertebrate Taxonomy:
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/group_significance_rare.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -s kruskal_wallis
+group_significance.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/group_significance_rare.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -s kruskal_wallis
+
+
+## 15a) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (unweighted UniFrac).
+
+# Water Velocity:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/adonis/unweighted_unifrac/adonis_unweighted_unifrac_water_velocity
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/adonis/unweighted_unifrac/adonis_unweighted_unifrac_water_velocity
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+
+
+## 15b) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (unweighted UniFrac; using rare OTU table).
+
+# Water Velocity:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_water_velocity
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_water_velocity
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/unweighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/adonis/unweighted_unifrac/adonis_unweighted_unifrac_order
+
+
+## 16a) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (weighted UniFrac).
+
+# Water Velocity:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/adonis/weighted_unifrac/adonis_weighted_unifrac_water_velocity
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/adonis/weighted_unifrac/adonis_weighted_unifrac_water_velocity
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+
+
+## 16b) compare_categories.py 
+## Analyzes statistical significance of sample groupings using distance matrices (weighted UniFrac; using rare OTU table).
+
+# Water Velocity:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_water_velocity
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_water_velocity
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/weighted_unifrac_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/adonis/weighted_unifrac/adonis_weighted_unifrac_order
+
+
+## 17a) compare_categories.py
+## Analyzes statistical significance of sample groupings using distance matrices (Bray-Curtis). 
+
+# Water Velocity:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/adonis/bray_curtis/adonis_bray_curtis_water_velocity
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/adonis/bray_curtis/adonis_bray_curtis_water_velocity
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/adonis/bray_curtis/adonis_bray_curtis_order
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/adonis/bray_curtis/adonis_bray_curtis_order
+
+
+## 17b) compare_categories.py
+## Analyzes statistical significance of sample groupings using distance matrices (Bray-Curtis; using rare OTU table). 
+
+# Water Velocity:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/adonis/bray_curtis/adonis_bray_curtis_water_velocity
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -c WaterVelocity -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/adonis/bray_curtis/adonis_bray_curtis_water_velocity
+
+# Host Invertebrate Taxonomy:
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/adonis/bray_curtis/adonis_bray_curtis_order
+compare_categories.py --method adonis -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/bray_curtis_dm.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -c Order -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/adonis/bray_curtis/adonis_bray_curtis_order
+
+
+## 18a) make_2d_plots.py
+## Make 2D PCoA Plots (unweighted UniFrac).
+
+# Water Velocity:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/2d_unweighted_unifrac_plots -b WaterVelocity
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/2d_unweighted_unifrac_plots -b WaterVelocity
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/2d_unweighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/2d_unweighted_unifrac_plots -b Order
+
+
+## 18b) make_2d_plots.py
+## Make 2D PCoA Plots (unweighted UniFrac; using rare OTU table).
+
+# Water Velocity:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/2d_unweighted_unifrac_plots -b WaterVelocity
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/2d_unweighted_unifrac_plots -b WaterVelocity
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/2d_unweighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/unweighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/2d_unweighted_unifrac_plots -b Order
+
+
+## 19a) make_2d_plots.py
+## Make 2D PCoA Plots (weighted UniFrac).
+
+# Water Velocity:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/2d_weighted_unifrac_plots -b WaterVelocity
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/2d_weighted_unifrac_plots -b WaterVelocity
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/2d_weighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/2d_weighted_unifrac_plots -b Order
+
+
+## 19b) make_2d_plots.py
+## Make 2D PCoA Plots (weighted UniFrac; using rare OTU table).
+
+# Water Velocity:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/2d_weighted_unifrac_plots -b WaterVelocity
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/2d_weighted_unifrac_plots -b WaterVelocity
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/2d_weighted_unifrac_plots -b Order
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/weighted_unifrac_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/2d_weighted_unifrac_plots -b Order
+
+
+## 20a) make_2d_plots.py
+## Make 2D PCoA Plots (Bray-Curtis).
+
+# Water Velocity:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis/2d_bray_curtis_plots -b WaterVelocity
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae/2d_bray_curtis_plots -b WaterVelocity
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2/2d_bray_curtis_plots -b Order
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5/2d_bray_curtis_plots -b Order
+
+
+## 20b) make_2d_plots.py
+## Make 2D PCoA Plots (Bray-Curtis; using rare OTU table).
+
+# Water Velocity:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_sialis_rare/2d_bray_curtis_plots -b WaterVelocity
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -o /data/shawn/2016_Univariate/beta_diversity_output_water_velocity_chironomidae_rare/2d_bray_curtis_plots -b WaterVelocity
+
+# Host Invertebrate Taxonomy:
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_2_rare/2d_bray_curtis_plots -b Order
+make_2d_plots.py -i /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/bray_curtis_pc.txt -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -o /data/shawn/2016_Univariate/beta_diversity_output_taxonomy_order_site_5_rare/2d_bray_curtis_plots -b Order
+
+
+## 21a) summarize_taxa_through_plots.py
+## A workflow script for performing taxonomy summaries and plots.
+
+# Water Velocity:
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_water_velocity_sialis -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_water_velocity_chironomidae -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+
+# Host Invertebrate Taxonomy:
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_2 -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_5 -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+
+
+## 21b) summarize_taxa_through_plots.py
+## A workflow script for performing taxonomy summaries and plots (using rare OTU table).
+
+# Water Velocity:
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_sialis/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_water_velocity_sialis_rare -m /data/shawn/2016_Univariate/mapping_file_output_2016_water_velocity_sialis/mapping_file_2016_water_velocity_sialis.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_water_velocity_chironomidae/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_water_velocity_chironomidae_rare -m /data/shawn/2016_Univariate/mapping_file_output_water_velocity_chironomidae/mapping_file_2016_water_velocity_chironomidae.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+
+# Host Invertebrate Taxonomy:
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_2/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_2_rare -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_2/mapping_file_2016_taxonomy_order_site_2.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
+summarize_taxa_through_plots.py -i /data/shawn/2016_Univariate/de_novo_OTU_output_taxonomy_order_site_5/de_novo_OTU_table_filtered_rare.biom -o /data/shawn/2016_Univariate/summarize_taxa_through_plots_output_taxonomy_order_site_5_rare -m /data/shawn/2016_Univariate/mapping_file_output_taxonomy_order_site_5/mapping_file_2016_taxonomy_order_site_5.txt -p /data/shawn/2016_Univariate/custom_summary_through_plots_param.txt
